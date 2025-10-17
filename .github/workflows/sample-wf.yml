@@ -1,0 +1,17 @@
+name: GitHub Actions デモ
+run-name: ${{ github.actor }} がGitHub Actionsをテストしています
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo " ブランチ名は ${{ github.ref }}、リポジトリ名は ${{ github.
+repository }} です。"
+    - name: リポジトリのコードをチェックアウトする
+        uses: actions/checkout@v4
+      - run: echo " リポジトリ ${{ github.repository }} がランナー上にクローン
+されました。"
+    - name: リポジトリ内のファイルを一覧表示
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo " このジョブのステータスは ${{ job.status }} です。"
